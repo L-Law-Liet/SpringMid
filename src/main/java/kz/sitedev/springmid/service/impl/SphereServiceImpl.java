@@ -14,8 +14,8 @@ public class SphereServiceImpl implements SphereService {
     SphereRepository sphereRepository;
 
     @Override
-    public void create(Sphere sphere) {
-        sphereRepository.save(sphere);
+    public Sphere create(Sphere sphere) {
+        return sphereRepository.saveAndFlush(sphere);
     }
 
     public List<Sphere> getAll() {

@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface SphereService {
 
-    void create(Sphere sphere);
+    Sphere create(Sphere sphere);
     List<Sphere> getAll();
 }

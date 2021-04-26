@@ -11,6 +11,8 @@ import java.util.List;
 @Repository
 public interface JobRepository extends JpaRepository<Job, Long> {
 
-    List<Job> findJobsBySphereId(int sphereId);
+    List<Job> findJobsBySphereId(Long sphereId);
+
+    Job getById(Long id);
 
 }

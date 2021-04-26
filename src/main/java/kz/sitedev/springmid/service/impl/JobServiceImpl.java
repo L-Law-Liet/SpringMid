@@ -20,15 +20,25 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public List<Job> findJobsBySphereId(int sphereId) {
+    public List<Job> findJobsBySphereId(Long sphereId) {
         return jobRepository.findJobsBySphereId(sphereId);
     }
-
+    public List<Job> all(){
+      return jobRepository.findAll();
+    };
 //    @Override
 //    public List<User> getUsersByJob(Long jobId) {
 //        return jobRepository.getUsersByJobId(jobId.intValue());
 //    }
 
+    public Job update(Job job){
+        return jobRepository.saveAndFlush(job);
+    }
+
+    @Override
+    public Job find(Long id) {
+        return jobRepository.getById(id);
+    }
 
     @Override
     public void delete(Long id) {

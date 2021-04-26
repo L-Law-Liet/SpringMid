@@ -9,7 +9,10 @@ import java.util.List;
 public interface JobService {
 
     void create(Job job);
-    List<Job> findJobsBySphereId(int sphereId);
+    List<Job> findJobsBySphereId(Long sphereId);
 //    List<User> getUsersByJob(Long jobId);
-void delete(Long id);
+    void delete(Long id);
+    List<Job> all();
+    Job update(Job job);
+    Job find(Long id);
 }

@@ -1,36 +1,27 @@
 package kz.sitedev.springmid.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "spheres")
+@Setter
+@Getter
+@ToString(exclude = {"jobs", "userSpheres"})
 public class Sphere {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "sphere", fetch = FetchType.LAZY)
+    private List<Job> jobs;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "sphere", fetch = FetchType.LAZY)
+    private List<UserSphere> userSpheres;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    @Override
-    public String toString() {
-        return "Sphere{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                '}';
-    }
 }

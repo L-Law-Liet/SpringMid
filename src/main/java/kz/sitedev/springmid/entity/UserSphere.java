@@ -1,38 +1,33 @@
 package kz.sitedev.springmid.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.Id;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users_spheres")
+@Setter
+@Getter
+@ToString
 public class UserSphere {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int sphereId;
-    private int userId;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "sphere_id")
+    private Long sphereId;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "user_id")
+    private Long userId;
 
-    public int getSphereId() {
-        return sphereId;
-    }
+    @ManyToOne
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private User user;
 
-    public void setSphereId(int sphereId) {
-        this.sphereId = sphereId;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sphere_id", insertable = false, updatable = false)
+    private Sphere sphere;
 }

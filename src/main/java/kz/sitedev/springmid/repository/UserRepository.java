@@ -19,4 +19,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "join users u on u.id = us.user_id " +
             "where j.id = :id", nativeQuery = true)
     List<User> getUsersByJobId(Long id);
+
+    User findByUsername(String s);
+
+    void deleteById(Long id);
 }
