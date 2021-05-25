@@ -7,16 +7,18 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "spheres")
+@Table(name = "cities")
 @Setter
 @Getter
 @ToString
-public class Sphere {
+public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
+//    @OneToMany(mappedBy = "sphere", fetch = FetchType.LAZY)
+//    private List<Job> jobs;
 
 //    @OneToMany(mappedBy = "sphere", fetch = FetchType.LAZY)
 //    private List<UserSphere> userSpheres;

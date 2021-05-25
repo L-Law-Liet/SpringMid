@@ -23,6 +23,12 @@ public class JobServiceImpl implements JobService {
     public List<Job> findJobsBySphereId(Long sphereId) {
         return jobRepository.findJobsBySphereId(sphereId);
     }
+
+    @Override
+    public List<Job> getByUserId(Long userId) {
+        return jobRepository.getByUserId(userId);
+    }
+
     public List<Job> all(){
       return jobRepository.findAll();
     };
@@ -30,6 +36,10 @@ public class JobServiceImpl implements JobService {
 //    public List<User> getUsersByJob(Long jobId) {
 //        return jobRepository.getUsersByJobId(jobId.intValue());
 //    }
+    @Override
+    public List<Job> getByParams(String keywords, String cityId, String sphereId, String typeId, String salary){
+        return jobRepository.getByParams(keywords, cityId, sphereId, typeId, salary);
+    }
 
     public Job update(Job job){
         return jobRepository.saveAndFlush(job);
@@ -37,7 +47,7 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public Job find(Long id) {
-        return jobRepository.getById(id);
+        return jobRepository.findById(id).get();
     }
 
     @Override

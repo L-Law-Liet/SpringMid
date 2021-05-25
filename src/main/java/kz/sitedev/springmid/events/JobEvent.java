@@ -1,19 +1,16 @@
 package kz.sitedev.springmid.events;
 
 import kz.sitedev.springmid.entity.User;
+import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Getter
 public class JobEvent extends ApplicationEvent {
-    private List<User> users = new ArrayList<>();
-    public JobEvent(Object source, List<User> users) {
+    private Long id;
+    public JobEvent(Object source, Long id) {
         super(source);
-        this.users = users;
-    }
-
-    public List<User> getUsers(){
-        return this.users;
+        this.id = id;
     }
 }

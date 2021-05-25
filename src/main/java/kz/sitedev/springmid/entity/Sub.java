@@ -8,24 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users_spheres")
+@Table(name = "subs")
 @Setter
 @Getter
 @ToString
-public class UserSphere {
+public class Sub {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "sphere_id")
-    private Long sphereId;
+    private int count;
 
     @Column(name = "user_id")
     private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private User user;
+    @Column(name = "sphere_id")
+    private Long sphereId;
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+//    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sphere_id", insertable = false, updatable = false)

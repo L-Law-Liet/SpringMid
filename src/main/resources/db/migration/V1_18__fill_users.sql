@@ -1,0 +1,4 @@
+INSERT INTO users (username, password, name, phone, image, description)
+VALUES('a@hh.kz', '$2a$10$U.FBO50ibhdIgHHmVy9Rue1y2VAA8E.ICXi5tiVsq6tx3oZJPCgCu', null, null, null, null),
+      ('u@hh.kz', '$2a$10$U.FBO50ibhdIgHHmVy9Rue1y2VAA8E.ICXi5tiVsq6tx3oZJPCgCu', 'Applicant1', '87774767117', null, null),
+      ('c@hh.kz', '$2a$10$U.FBO50ibhdIgHHmVy9Rue1y2VAA8E.ICXi5tiVsq6tx3oZJPCgCu', 'Company1', null, 'https://files.virgool.io/upload/users/53311/posts/u2kp83lnnbwq/pcnyy89lwrxa.jpeg', 'Прогрессивное web-приложение — технология в web-разработке, которая визуально и функционально трансформирует сайт в приложение. Статистика говорит о том, что 66 % пользователей не скачивают ни одного приложения в месяц. Большую часть своего времени — примерно 85 % — пользователь проводит в пяти любимых приложениях.');

@@ -11,6 +11,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -46,7 +47,6 @@ public class JwtTokenGeneratorFilter extends UsernamePasswordAuthenticationFilte
             // 2. Create auth object (contains credentials) which will be used by auth manager
             UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                     creds.getUsername(), creds.getPassword(), Collections.emptyList());
-
             // 3. Authentication manager authenticate the user, and use UserDetialsServiceImpl::loadUserByUsername() method to load the user.
             return authManager.authenticate(authToken);
 
@@ -74,6 +74,7 @@ public class JwtTokenGeneratorFilter extends UsernamePasswordAuthenticationFilte
                 .compact();
 
         // Add token to header
+        response.addHeader("Access-Control-Expose-Headers", "Authorization");
         response.addHeader("Authorization", "Bearer " + token);
     }
 }

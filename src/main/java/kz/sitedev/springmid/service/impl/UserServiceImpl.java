@@ -32,9 +32,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.findAll();
     }
 
-    public List<User> getUsersByJob(Long id) {
-        return userRepository.getUsersByJobId(id);
-    }
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -44,7 +41,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         }
         return user;
     }
-
+    public  User getByUsername(String s){
+        return userRepository.getFirstByUsername(s);
+    }
     public void delete(Long id){
         userRepository.deleteById(id);
     }
